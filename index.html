@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alquimia Design</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- FontAwesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+        <style>
+            :root {
+                --primary: #00c4cc;
+                --secondary: #008a8f;
+                --light: #f9f9f9;
+                --dark: #222;
+            }
+            body {
+                font-family: 'Segoe UI', Tahoma, sans-serif;
+                color: var(--dark);
+            }
+            .navbar {
+                background: #fff;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            }
+            .btn-cta {
+                background: linear-gradient(45deg, var(--primary), var(--secondary));
+                color: #fff;
+                font-weight: bold;
+                border-radius: 30px;
+                padding: 10px 20px;
+                transition: transform .3s ease;
+            }
+            .btn-cta:hover {
+                transform: scale(1.05);
+                color: #fff;
+            }
+            /* Hero con imagen de fondo */
+            .hero {
+                background: linear-gradient(rgba(0,196,204,.7), rgba(0,138,143,.7)),
+                    url('hero-bg.jpg') center/cover no-repeat;
+                color: #fff;
+                padding: 120px 20px;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 3rem;
+                font-weight: 800;
+                animation: fadeInDown 1s ease;
+            }
+            .hero p {
+                font-size: 1.2rem;
+                margin-top: 15px;
+                animation: fadeInUp 1.2s ease;
+            }
+            .text-teal-500 {
+                color: #20c997 !important; /* valor real de $teal-500 en Bootstrap */
+            }
+            @keyframes fadeInDown {
+                from {
+                    opacity:0;
+                    transform: translateY(-50px);
+                }
+                to {
+                    opacity:1;
+                    transform: translateY(0);
+                }
+            }
+            @keyframes fadeInUp {
+                from {
+                    opacity:0;
+                    transform: translateY(50px);
+                }
+                to {
+                    opacity:1;
+                    transform: translateY(0);
+                }
+            }
+            /* Cards */
+            .card {
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                transition: transform .3s ease, box-shadow .3s ease;
+            }
+            .card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            }
+            .services .card {
+                padding: 25px;
+                background: var(--light);
+            }
+            .services .card h5 {
+                margin-top: 10px;
+            }
+            /* Secciones */
+            section {
+                scroll-margin-top: 80px; /* evita que navbar tape los títulos */
+            }
+            /* Contacto */
+            #contacto .form-control {
+                border-radius: 12px;
+                padding: 12px;
+                border: 1px solid #ddd;
+            }
+            #contacto button {
+                margin-top: 15px;
+            }
+            /* Footer */
+            footer {
+                background: var(--dark);
+                color: #bbb;
+                padding: 30px 0;
+            }
+            footer a {
+                color: var(--primary);
+                margin: 0 8px;
+                font-size: 1.2rem;
+                transition: color .3s;
+            }
+            footer a:hover {
+                color: #fff;
+            }
+            /* Botón flotante WhatsApp */
+            .whatsapp-float {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+                background: #25d366;
+                color: #fff;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 30px;
+                box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+                z-index: 100;
+                transition: transform .3s ease;
+            }
+            .whatsapp-float:hover {
+                transform: scale(1.1);
+            }
+            .whatsapp-float i {
+                margin-top: 15px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                    <img src="logo.jpg" alt="Alquimia Design" style="height:40px; width:auto; margin-right:10px;">
+                    Alquimia Design
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#quienes">Quiénes Somos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-cta ms-3">Cotiza tu empaque</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <section class="hero d-flex flex-column justify-content-center align-items-center">
+            <h1>Transformamos el empaque en una oportunidad</h1>
+            <p>Diseños innovadores, sostenibles y únicos para tu marca.</p>
+            <a href="#quienes" class="btn btn-light mt-4">Conoce más</a>
+        </section>
+
+        <!-- Quiénes Somos -->
+        <section id="quienes" class="container py-5 text-center">
+            <h2 class="fw-bold mb-4">Quiénes Somos</h2>
+            <p>
+                En <strong>Alquimia Design</strong> creamos empaques sostenibles y diseños que transmiten identidad. 
+                Apostamos por la innovación, la creatividad y el cuidado del planeta.
+            </p>
+        </section>
+
+        <!-- Misión y Visión -->
+        <section class="py-5 text-center" style="background-color: #e0f7f7;">
+            <div class="container">
+                <h2 class="fw-bold mb-5">Misión y Visión</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card p-4">
+                            <i class="fas fa-bullseye fa-2x text-teal-500 mb-3"></i>
+                            <h4>Misión</h4>
+                            <p>Brindar soluciones logísticas y de diseño innovadoras, sostenibles y personalizadas que fortalezcan la identidad de cada marca.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card p-4">
+                            <i class="fas fa-eye fa-2x text-teal-500 mb-3"></i>
+                            <h4>Visión</h4>
+                            <p>Ser líderes en empaques sostenibles, reconocidos por nuestro compromiso ambiental, calidad y creatividad en el diseño.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios" class="services container py-5">
+            <h2 class="text-center fw-bold mb-4">Nuestros Servicios</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-3"><div class="card"><i class="fas fa-paint-brush fa-2x text-teal-500"></i><h5>Diseño gráfico</h5></div></div>
+                <div class="col-md-3"><div class="card"><i class="fas fa-box-open fa-2x text-teal-500"></i><h5>Empaques personalizados</h5></div></div>
+                <div class="col-md-3"><div class="card"><i class="fas fa-building fa-2x text-teal-500"></i><h5>Imagen corporativa</h5></div></div>
+                <div class="col-md-3"><div class="card"><i class="fas fa-truck fa-2x text-teal-500"></i><h5>Soluciones logísticas</h5></div></div>
+            </div>
+        </section>
+
+        <!-- Catálogo -->
+        <section id="catalogo" class="catalogo container py-5">
+            <h2 class="text-center fw-bold mb-5">Catálogo de Productos</h2>
+            <div class="row g-4 mb-5">
+                <h3 class="fw-bold mb-4">Ceramicas</h3>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="ceramica1.jpg" class="card-img-top" alt="Cerámica 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Sol Pack</h5>
+                            <p class="card-text">Caja de Cartón reciclado con recubrimiento de almidón de maíz</p>
+                            <p class="fw-bold">$45.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="ceramica2.jpg" class="card-img-top" alt="Cerámica 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Andino</h5>
+                            <p class="card-text">Empaque de cartón recliclado con recubrimiento de cera de aveja</p>
+                            <p class="fw-bold">$47.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="ceramica3.jpg" class="card-img-top" alt="Cerámica 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Café Verde Pack</h5>
+                            <p class="card-text">Empaque de café compostable están hechos con
+                                un material innovador que combina cáscaras de
+                                café recicladas con otros materiales
+                                biodegradables.</p>
+                            <p class="fw-bold">$86.500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="ceramica4.jpg" class="card-img-top"alt="ceramica4"/>
+                        <div class="card-body">
+                            <h5 class="card-title">Alquimia Person</h5>
+                            <p class="card-text">Este empaque será completamente
+                                personalizado de acuerdo a tus
+                                necesidades </p>
+                            <p class="fw-bold">$70.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perfumes -->
+            <h3 class="fw-bold mb-4">Perfumes</h3>
+            <div class="row g-4 mb-5">
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="pure_terra.jpg" class="card-img-top" alt="Perfume 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Pure Terra</h5>
+                            <p class="card-text">caja de cartón reciclado con recubrimiento de almidón de maíz </p>
+                            <p class="fw-bold">$45.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="lux_green.jpg" class="card-img-top" alt="Perfume 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Lux Green</h5>
+                            <p class="card-text">Empaque de cartón reciclado con recubrimiento de cera de abeja</p>
+                            <p class="fw-bold">$47.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="pack_france.jpg" class="card-img-top" alt="Perfume 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Pack Frace</h5>
+                            <p class="card-text">Empaque de café compostable están hechos con
+                                un material innovador que combina cáscaras de
+                                café recicladas con otros materiales
+                                biodegradables.</p>
+                            <p class="fw-bold">$86.500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="Alquimia_person_oil.jpg" class="card-img-top" alt="Perfume 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Alquimia Person Oil</h5>
+                            <p class="card-text">Este empaque será completamente personalizado de acuerdo a tus
+                                necesidades .</p>
+                            <p class="fw-bold">$87.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maquillaje -->
+            <h3 class="fw-bold mb-4">Maquillaje</h3>
+            <div class="row g-4 mb-5">
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="Pretty_pack.jpg" class="card-img-top" alt="Maquillaje 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Pretty Pack</h5>
+                            <p class="card-text">caja de cartón reciclado con recubrimiento de almidón de maíz</p>
+                            <p class="fw-bold">$45.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="Aesthetic.jpg" class="card-img-top" alt="Maquillaje 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Aesthetic</h5>
+                            <p class="card-text">Empaque de cartón reciclado con recubrimiento de cera de abeja</p>
+                            <p class="fw-bold">$47.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="cute_pink.jpg" class="card-img-top" alt="Maquillaje 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Cute Pink</h5>
+                            <p class="card-text">Empaque de café compostable están hechos con un material innovador que combina cáscaras de
+                                café recicladas con otros materiales biodegradables.</p>
+                            <p class="fw-bold">$86.500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="Alquimia_person.jpg" class="card-img-top" alt="Maquillaje 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Alquimia Person</h5>
+                            <p class="card-text">Este empaque será completamente personalizado de acuerdo a tus
+necesidades </p>
+                            <p class="fw-bold">$87.000</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Aquí mantenemos tus cards (Cerámicas, Perfumes, Maquillaje) -->
+                <!-- (para no extender demasiado no repito, puedes dejar los que ya tienes) -->
+                <div class="text-center mt-4">
+                    <a href="catalogo.pdf" class="btn btn-cta" download>📥 Descargar Catálogo PDF</a>
+                </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="container py-5">
+            <h2 class="text-center fw-bold mb-4">Contáctanos</h2>
+            <form id="whatsappForm" class="row g-3 mt-4">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre completo" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" id="correo" placeholder="Correo electrónico" required>
+                </div>
+                <div class="col-12">
+                    <textarea class="form-control" id="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-cta">Enviar por WhatsApp</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center">
+            <p class="mb-2">© 2025 Alquimia Design | Todos los derechos reservados</p>
+            <div>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </footer>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/573001234567" class="whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Enviar formulario por WhatsApp
+            document.getElementById("whatsappForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+                let nombre = document.getElementById("nombre").value;
+                let correo = document.getElementById("correo").value;
+                let mensaje = document.getElementById("mensaje").value;
+                let numero = "3016881952";
+                let texto = `Hola, soy ${nombre}, mi correo es ${correo}. Mensaje: ${mensaje}`;
+                let url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+                window.open(url, "_blank");
+            });
+        </script>
+    </body>
+</html>
